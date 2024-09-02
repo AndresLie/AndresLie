@@ -9,7 +9,7 @@ export default function Experience() {
     
 
     return (
-        <div className=' h-[80vh] md:h-[110vh] flex flex-col items-center mt-16 w-full'>
+        <div className=' h-[80vh] md:h-[80vh] flex flex-col items-center w-full'>
             <h1 className='mb-28 text-3xl'>My Experience</h1>
             <Timeline active={1} bulletSize={50} lineWidth={9} >
                 <Timeline.Item bullet={<IconBriefcase2 size={20} />} title="NCKU Mi2S Lab Assistant">

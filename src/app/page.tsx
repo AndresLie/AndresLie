@@ -14,31 +14,35 @@ export default function Page() {
   useEffect(() => {
     const handleScroll = () => {
       const sections = document.querySelectorAll("section");
-      let currentSection:string|null = activeSection;
-
+      let currentSection: string | null = activeSection;
+    
+      const viewportMiddle = window.scrollY + window.innerHeight / 2;
+    
       sections.forEach((section) => {
         const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (window.scrollY >= sectionTop - sectionHeight / 2) {
+        const sectionBottom = sectionTop + section.clientHeight;
+    
+        if (viewportMiddle >= sectionTop && viewportMiddle < sectionBottom) {
           currentSection = section.getAttribute("id");
         }
       });
-
+    
       if (currentSection !== activeSection) {
         setActiveSection(currentSection);
       }
-      // console.log(currentSection);
     };
+    
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [activeSection]);
+    }, [activeSection]);
+    
   return (
     <MantineProvider>
       <Navbar setActiveSection={setActiveSection} activeSection={activeSection} />
       <section id="Home" className="">
         <Home />
       </section>
-      <section id="Experience" className="mb-24">
+      <section id="Experience" className="pt-16 pb-16">
         <Experience />
       </section>
       <section id="Projects">
