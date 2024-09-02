@@ -7,6 +7,7 @@ import { Navbar } from "./navbar";
 import { useEffect, useState } from "react";
 import Projects from "./projects";
 import Skills from "./skills";
+import Contact from "./contact";
 
 export default function Page() {
   const [activeSection, setActiveSection] = useState("Home")
@@ -37,7 +38,7 @@ export default function Page() {
       <section id="Home" className="mb-16">
         <Home />
       </section>
-      <section id="Experience">
+      <section id="Experience" className="mb-8">
         <Experience />
       </section>
       <section id="Projects">
@@ -45,6 +46,9 @@ export default function Page() {
       </section>
       <section id="Skills">
         <Skills />
+      </section>
+      <section id="">
+        <Contact />
       </section>
     </MantineProvider>
   );
