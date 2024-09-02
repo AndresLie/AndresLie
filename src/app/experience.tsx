@@ -9,8 +9,8 @@ export default function Experience() {
     
 
     return (
-        <div className=' h-[80vh] md:h-[105vh] flex flex-col items-center'>
-            <h1 className='mb-10 text-3xl'>My Experience</h1>
+        <div className=' h-[80vh] md:h-[110vh] flex flex-col items-center mt-16 w-full'>
+            <h1 className='mb-28 text-3xl'>My Experience</h1>
             <Timeline active={1} bulletSize={50} lineWidth={9} >
                 <Timeline.Item bullet={<IconBriefcase2 size={20} />} title="NCKU Mi2S Lab Assistant">
                     <Text c="dimmed" size="lg">Developed and Maintained Kasih, a cross lingual mobile application <br></br> intended to assist foreign caretaker and worker in Taiwan</Text>

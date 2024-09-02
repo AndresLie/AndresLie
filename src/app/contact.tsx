@@ -3,7 +3,7 @@ import { Icon } from "@iconify/react";
 
 export default function Contact() {
   return (
-    <div className="h-[85vh] w-full flex flex-col items-center justify-center mx-10">
+    <div className="h-[85vh]  flex flex-col items-center justify-center px-10 w-full" >
       <h1 className="text-3xl mb-8">Contact Me</h1>
       
       {/* Wrap the icons in a mailto link */}

@@ -9,7 +9,7 @@ export default function Projects() {
     
 
     return (
-        <div className='flex flex-col items-center mb-32 justify-around'>
+        <div className='flex flex-col items-center mb-32 justify-around w-full'>
             <h1 className='mb-10 text-3xl '>My Projects</h1>
             <ProjectCard id="Music-Player">
             <TextHalf 

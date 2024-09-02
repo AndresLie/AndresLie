@@ -35,10 +35,10 @@ export default function Page() {
   return (
     <MantineProvider>
       <Navbar setActiveSection={setActiveSection} activeSection={activeSection} />
-      <section id="Home" className="mb-16">
+      <section id="Home" className="">
         <Home />
       </section>
-      <section id="Experience" className="mb-8">
+      <section id="Experience" className="mb-24">
         <Experience />
       </section>
       <section id="Projects">

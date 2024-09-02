@@ -5,7 +5,7 @@ import SkillContainer from '@/components/ui/skill-container';
 
 export default function Skills() {
     return (
-        <div className='space-y-8 flex flex-col  ml-[4vw] mr-[4vw] md:ml-[10vw] md:mr-[10vw] mb-32'>
+        <div className='space-y-8 flex flex-col  px-[4vw] md:px-[10vw] mb-32 w-full'>
             
             <h1 className='text-3xl mb-20 self-center'>My Skills</h1>
             <SkillContainer title='Frontend Development' id='Frontend'>
