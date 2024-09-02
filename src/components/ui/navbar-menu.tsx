@@ -22,20 +22,21 @@ export const MenuItem = ({
   activeSection,
 }: {
   setActive: (item: string) => void;
-  active:string|null;
+  active: string | null;
   item: string;
   children?: React.ReactNode;
   activeSection: boolean;
 }) => {
-  const delay =  0.15; // Adjust the delay for the cascading effect
+  const delay = 0.15; // Adjust the delay for the cascading effect
 
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     const element = document.getElementById(item);
     if (element) {
       const yOffset = -96; // Fixed offset of 96px
-      const yPosition = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-      
+      const yPosition =
+        element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
       window.scrollTo({
         top: yPosition,
         behavior: "smooth",
@@ -48,8 +49,10 @@ export const MenuItem = ({
   return (
     <motion.div
       onMouseEnter={() => setActive(item)}
-      className={`relative ${
-        activeSection ? "bg-gray-400 text-white p-1 px-2 rounded-full md:w-auto w-[80%]" : ""
+      className={`relative flex items-center justify-center h-[6vh] md:h-auto ${
+        activeSection
+          ? "bg-gray-400 text-white md:p-1 md:px-2 rounded-lg md:rounded-full md:w-auto"
+          : ""
       }`}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
@@ -57,7 +60,7 @@ export const MenuItem = ({
     >
       <Link href={`#${item}`} passHref onClick={handleScroll}>
         <motion.p
-          className={`cursor-pointer text-black hover:opacity-[0.9] dark:text-white ${
+          className={`cursor-pointer text-black hover:opacity-[0.9] dark:text-white flex justify-center md:justify-normal items-center ${
             activeSection ? "text-white" : ""
           }`}
         >
@@ -71,7 +74,7 @@ export const MenuItem = ({
           transition={{ ...transition, delay: delay + 0.2 }}
         >
           {active === item && children && (
-            <div className=" hidden md:block absolute top-[calc(100%_+_0.5rem)] left-1/2 transform -translate-x-1/2 pt-4">
+            <div className="hidden md:block absolute top-[calc(100%_+_0.5rem)] left-1/2 transform -translate-x-1/2 pt-4">
               <motion.div
                 transition={transition}
                 layoutId="active"
@@ -102,69 +105,86 @@ export const Menu = ({
     setMenuOpen(!menuOpen);
   };
 
+  useEffect(() => {
+    // Toggle body overflow when menu is open
+    if (menuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    // Clean up by resetting overflow when component unmounts
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
+
   return (
-  <nav
-    className="relative flex items-center justify-between bg-gray-300 md:rounded-full md:py-3 w-full"
-    onMouseLeave={() => setActive(null)}
-  >
-    {/* Hamburger Icon / X Icon for Small Screens */}
-    <div className="md:hidden absolute top-0 right-0 p-4 z-30">
-      <button
-        onClick={toggleMenu}
-        className="text-blue-700 focus:outline-none"
-        aria-label="Toggle menu"
-      >
-        {menuOpen ? (
-          <svg
-            className="h-8 w-8"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M6 18L18 6M6 6l12 12"
-            />
-          </svg>
-        ) : (
-          <svg
-            className="h-8 w-8"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M4 6h16M4 12h16m-7 6h7"
-            />
-          </svg>
-        )}
-      </button>
-    </div>
-
-    {/* Menu for Desktop and Expanded Menu for Mobile */}
-    <div
-      className={`${
-        menuOpen ? "block" : "hidden"
-      } md:flex md:justify-evenly flex-col md:flex-row items-center w-full top-full left-0 right-0 bg-gray-300 md:bg-transparent z-20 p-4 md:p-0`}
+    <nav
+      className="relative flex items-center justify-between bg-gray-300 md:rounded-full md:py-3 w-full "
+      onMouseLeave={() => setActive(null)}
     >
-      {children}
-    </div>
+      {/* Hamburger Icon / X Icon for Small Screens */}
+      <div className="md:hidden absolute top-0 right-0 p-4 z-30">
+        <button
+          onClick={toggleMenu}
+          className="text-blue-700 focus:outline-none"
+          aria-label="Toggle menu"
+        >
+          {menuOpen ? (
+            <svg
+              className="h-12 w-12"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          ) : (
+            <svg
+              className="h-12 w-12"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h16m-7 6h7"
+              />
+            </svg>
+          )}
+        </button>
+      </div>
 
-    {/* Overlay for Small Screens */}
-    {menuOpen && (
+      {/* Menu for Desktop and Expanded Menu for Mobile */}
       <div
-        className="fixed inset-0 bg-black opacity-50 z-10"
-        onClick={toggleMenu}
-      ></div>
-    )}
-  </nav>
-);
+        className={`${
+          menuOpen ? "block" : "hidden"
+        } md:flex md:justify-evenly flex-col md:flex-row items-center w-full top-full left-0 right-0 bg-gray-300 md:bg-transparent z-20 p-4 md:p-0 h-[50vh] md:h-full pt-16 md:pt-0 space-y-4 md:space-y-0`}
+      >
+        {children}
+      </div>
+
+      {/* Overlay for Small Screens */}
+      {menuOpen && (
+        <div
+          className="fixed inset-0 bg-black opacity-50 z-10"
+          onClick={toggleMenu}
+        ></div>
+      )}
+    </nav>
+  );
 };
+
+
+
 export const ProductItem = ({
   title,
   description,
