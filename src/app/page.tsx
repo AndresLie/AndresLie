@@ -6,6 +6,7 @@ import { MantineProvider } from '@mantine/core';
 import { Navbar } from "./navbar";
 import { useEffect, useState } from "react";
 import Projects from "./projects";
+import Skills from "./skills";
 
 export default function Page() {
   const [activeSection, setActiveSection] = useState("Home")
@@ -33,14 +34,17 @@ export default function Page() {
   return (
     <MantineProvider>
       <Navbar setActiveSection={setActiveSection} activeSection={activeSection} />
-      <section id="Home" >
+      <section id="Home" className="mb-16">
         <Home />
       </section>
-      <section id="Experience" className="pt-24 ">
+      <section id="Experience">
         <Experience />
       </section>
-      <section id="Projects" className="pt-24">
+      <section id="Projects">
         <Projects />
+      </section>
+      <section id="Skills">
+        <Skills />
       </section>
     </MantineProvider>
   );

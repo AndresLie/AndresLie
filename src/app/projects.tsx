@@ -9,9 +9,9 @@ export default function Projects() {
     
 
     return (
-        <div className='flex flex-col  items-center mb-32'>
+        <div className='flex flex-col items-center mb-32 justify-around'>
             <h1 className='mb-10 text-3xl '>My Projects</h1>
-            <ProjectCard>
+            <ProjectCard id="Music-Player">
             <TextHalf 
                     title='Multi-Lingual Mobile Music Player' 
                     description="A Music player which focus on multi-lingual(English, Chinese, Indonesian) feature with included Music Player, 
@@ -20,20 +20,20 @@ export default function Projects() {
                     demo="https://drive.google.com/file/d/1FYx2QTh-rHPETgsCMaUu0FJMrq6HJT6R/view?usp=sharing"
                     github="https://github.com/AndresLie/React-Native-Music-Player"
                 >
-                    <TbBrandReactNative size={30} color="#61DAFB" />
+                    <TbBrandReactNative size={33} color="#61DAFB" />
                     <div style={{ backgroundColor: 'black' }}>
-                        <SiJavascript size={28} color="#F7DF1E" />
+                        <SiJavascript size={31} color="#F7DF1E" />
                     </div>
-                    <SiFlask size={28} color="#000000" />
-                     <SiPython size={28} color="#3776AB" />
-                    <SiMongodb size={28} color="#47A248" />
-                    <SiExpo size={28} color="#000020" />
+                    <SiFlask size={31} color="#000000" />
+                     <SiPython size={31} color="#3776AB" />
+                    <SiMongodb size={31} color="#47A248" />
+                    <SiExpo size={31} color="#000020" />
                 </TextHalf>
                 <ImageHalf imgPath='/assets/music-player.jpg' imgPathHovered='/assets/music-player2.jpg' altText='to-do-list app' isMobileImage={true}
                     
                 />
             </ProjectCard>
-            <ProjectCard>
+            <ProjectCard id='Forecast-Bot'>
                 <TextHalf 
                     title='RaspPi Forecast Bot' 
                     description="A compact smart home weather forecast bot with Speech Recognition  with Speech Feedback capability, it utilize GPT-4 for analysis and recommendation
@@ -41,13 +41,13 @@ export default function Projects() {
                     demo="https://drive.google.com/file/d/1gRndNQ9E7TrvrBrbEqhiwrrXLRA04zXJ/view?usp=sharing"
                     github="https://github.com/AndresLie/RaspiForecastBot"
                 >
-                     <FaRaspberryPi size={30} color="#C51A4A" />
-                     <SiFlask size={28} color="#000000" />
-                     <SiPython size={28} color="#3776AB" />
+                     <FaRaspberryPi size={33} color="#C51A4A" />
+                     <SiFlask size={31} color="#000000" />
+                     <SiPython size={31} color="#3776AB" />
                 </TextHalf>
                 <ImageHalf imgPath='/assets/weather-forecast.png' imgPathHovered='/assets/weather-forecast.png' altText='to-do-list app'/>
             </ProjectCard>
-            <ProjectCard>
+            <ProjectCard id='To-do-List'>
                 <TextHalf 
                     title='To Do List App' 
                     description="A to do list web-app based on React with save on local browser and responsive design.
@@ -56,13 +56,13 @@ export default function Projects() {
                     live="https://my-personal-todolist.netlify.app/"
                     github="https://github.com"
                 >
-                     <FaReact size={30} color="#61DAFB" />
+                     <FaReact size={33} color="#61DAFB" />
                      <div style={{ backgroundColor: 'black' }}>
-                        <SiJavascript size={28} color="#F7DF1E" />
+                        <SiJavascript size={31} color="#F7DF1E" />
                     </div>
-                     <SiCss3 size={30} color="#1572B6" />
-                     <SiShadcnui size={25}/>
-                     <FaBootstrap size={38} color="#7952B3" />
+                     <SiCss3 size={33} color="#1572B6" />
+                     <SiShadcnui size={31}/>
+                     <FaBootstrap size={42} color="#7952B3" />
                 </TextHalf>
                 <ImageHalf imgPath='/assets/to-do-list.png' imgPathHovered='/assets/to-do-list2.png' altText='to-do-list app'/>
             </ProjectCard>

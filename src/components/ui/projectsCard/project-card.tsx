@@ -2,9 +2,10 @@ import React, { useState, useEffect, useRef, ReactNode } from 'react';
 
 interface ProjectCardProps {
     children: ReactNode;
+    id:string;
 }
 
-export default function ProjectCard({ children }: ProjectCardProps) {
+export default function ProjectCard({ children,id }: ProjectCardProps) {
     const [scale, setScale] = useState<number>(1);
     const cardRef = useRef<HTMLDivElement | null>(null);
 
@@ -21,7 +22,7 @@ export default function ProjectCard({ children }: ProjectCardProps) {
                 const maxDistance = viewportHeight / 2;
 
                 // Calculate scale based on proximity to center (minimum scale is 1)
-                const newScale = Math.max(0.7, 0.7 + (1 - distanceFromCenter / maxDistance) * 0.1); 
+                const newScale = Math.max(0.8, 0.7 + (1 - distanceFromCenter / maxDistance) * 0.1); 
 
                 setScale(newScale);
 
@@ -62,6 +63,7 @@ export default function ProjectCard({ children }: ProjectCardProps) {
 
     return (
         <div
+            id={id}
             ref={cardRef}
             className="transition-all duration-75 ease-in-out bg-gray-100 hover:bg-gray-200 mx-auto flex justify-between pl-8 pt-8 rounded-lg group"
             style={{ transform: `scale(${scale})` }}

@@ -22,12 +22,12 @@ export default function TextHalf({
 
     return (
         <div className='w-full md:w-[45%] flex flex-col justify-between gap-5 space-x-2 pb-8'>
-            <h1 className='text-lg '>{title}</h1>
+            <h1 className='text-3xl '>{title}</h1>
             <div className='flex items-center space-x-1'>
-                <span className='text-sm'>Made With:</span>
+                <span className='text-xl'>Made With:</span>
                 {children}
             </div>
-            <div className='text-md'>{description}</div>
+            <div className='text-2xl'>{description}</div>
             <div className='gap-4 flex'>
                 {live &&
                     <a 

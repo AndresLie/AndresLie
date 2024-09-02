@@ -13,49 +13,43 @@ export function Navbar({ className, activeSection, setActiveSection }: { classNa
         <MenuItem setActive={setActive} active={active} item="Home" activeSection={activeSection=="Home"}/>
         <MenuItem setActive={setActive} active={active} item="Experience" activeSection={activeSection=="Experience"}/>
         <MenuItem setActive={setActive} active={active} item="Projects" activeSection={activeSection=="Projects"}>
-          {/* <div className="  text-sm grid grid-cols-2 gap-10 p-4">
+          <div className="  text-sm grid grid-cols-2 gap-10 p-4">
             <ProductItem
-              title="Algochurn"
-              href="https://algochurn.com"
-              src="https://assets.aceternity.com/demos/algochurn.webp"
-              description="Prepare for tech interviews like never before."
+              title="Multilingual Music Player"
+              href="#Music-Player"
+              src="/assets/music-player-nav.jpg"
+              description="A Multilingual Mobile Music Player with playlist,queue and music detector"
             />
             <ProductItem
-              title="Tailwind Master Kit"
-              href="https://tailwindmasterkit.com"
-              src="https://assets.aceternity.com/demos/tailwindmasterkit.webp"
-              description="Production ready Tailwind css components for your next project"
+              title="Raspi Forecast Bot"
+              href="#Forecast-Bot"
+              src="/assets/weather-forecast-nav.png"
+              description="A Weather forecast and analyst personal Assistant built on Raspberry Pi"
             />
             <ProductItem
-              title="Moonbeam"
-              href="https://gomoonbeam.com"
-              src="https://assets.aceternity.com/demos/Screenshot+2024-02-21+at+11.51.31%E2%80%AFPM.png"
-              description="Never write from scratch again. Go from idea to blog in minutes."
+              title="To-Do List App"
+              href="#To-do-List"
+              src="/assets/to-do-list.png"
+              description="A To Do List App with save on local browser and responsive design."
             />
-            <ProductItem
-              title="Rogue"
-              href="https://userogue.com"
-              src="https://assets.aceternity.com/demos/Screenshot+2024-02-21+at+11.47.07%E2%80%AFPM.png"
-              description="Respond to government RFPs, RFIs and RFQs 10x faster using AI"
-            />
-          </div> */}
+          </div>
         </MenuItem>
         <MenuItem setActive={setActive} active={active} item="Skills" activeSection={activeSection=="Skills"}>
           <div className="flex flex-col space-y-4 text-sm">
-            <HoveredLink href="/hobby">Hobby</HoveredLink>
-            <HoveredLink href="/individual">Individual</HoveredLink>
-            <HoveredLink href="/team">Team</HoveredLink>
-            <HoveredLink href="/enterprise">Enterprise</HoveredLink>
+            <HoveredLink href="#Frontend">Frontend Development</HoveredLink>
+            <HoveredLink href="#Backend">Backend Development</HoveredLink>
+            <HoveredLink href="#Mobile">Mobile App Development</HoveredLink>
+            <HoveredLink href="#Others">Others</HoveredLink>
           </div>
         </MenuItem>
-        <MenuItem setActive={setActive} active={active} item="Contact" activeSection={activeSection=="Contact"}>
+        {/* <MenuItem setActive={setActive} active={active} item="Contact" activeSection={activeSection=="Contact"}>
           <div className="flex flex-col space-y-4 text-sm">
             <HoveredLink href="/hobby">Hobby</HoveredLink>
             <HoveredLink href="/individual">Individual</HoveredLink>
             <HoveredLink href="/team">Team</HoveredLink>
             <HoveredLink href="/enterprise">Enterprise</HoveredLink>
           </div>
-        </MenuItem>
+        </MenuItem> */}
       </Menu>
     </div>
   );

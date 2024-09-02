@@ -18,24 +18,29 @@ export const MenuItem = ({
   setActive,
   item,
   active,
-  index,
   children,
   activeSection,
 }: {
   setActive: (item: string) => void;
   active:string|null;
   item: string;
-  index: number;
   children?: React.ReactNode;
   activeSection: boolean;
 }) => {
-  const delay = index * 0.15; // Adjust the delay for the cascading effect
+  const delay =  0.15; // Adjust the delay for the cascading effect
 
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     const element = document.getElementById(item);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" });
+      const yOffset = -96; // Fixed offset of 96px
+      const yPosition = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      
+      window.scrollTo({
+        top: yPosition,
+        behavior: "smooth",
+      });
+
       setActive(item); // Update the active section
     }
   };
@@ -66,7 +71,7 @@ export const MenuItem = ({
           transition={{ ...transition, delay: delay + 0.2 }}
         >
           {active === item && children && (
-            <div className="absolute top-[calc(100%_+_0.5rem)] left-1/2 transform -translate-x-1/2 pt-4">
+            <div className=" hidden md:block absolute top-[calc(100%_+_0.5rem)] left-1/2 transform -translate-x-1/2 pt-4">
               <motion.div
                 transition={transition}
                 layoutId="active"
@@ -171,14 +176,37 @@ export const ProductItem = ({
   href: string;
   src: string;
 }) => {
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    if (href.startsWith("#")) {  // Ensure the href is an internal link with a hash
+      e.preventDefault();
+      const targetId = href.replace("#", "");
+      const element = document.getElementById(targetId);
+
+      if (element) {
+        const yOffset = -108; // Set the offset to 96px
+        const yPosition = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+        window.scrollTo({
+          top: yPosition,
+          behavior: "smooth",
+        });
+      }
+    }
+  };
+
   return (
-    <Link href={href} className="flex space-x-2">
+    <Link
+      href={href}
+      className="flex space-x-2 hover:text-black dark:hover:text-white transition duration-300 ease-in-out"
+
+      onClick={handleClick} // Attach the click handler to the Link component
+    >
       <Image
         src={src}
-        width={140}
-        height={70}
+        width={200}
+        height={30}
         alt={title}
-        className="flex-shrink-0 rounded-md shadow-2xl"
+        className="flex-shrink-0 rounded-md shadow-2xl hover:scale-105 transition-transform duration-300 ease-in-out"
       />
       <div>
         <h4 className="text-xl font-bold mb-1 text-black dark:text-white">
@@ -192,9 +220,29 @@ export const ProductItem = ({
   );
 };
 
-export const HoveredLink = ({ children, ...rest }: any) => {
+export const HoveredLink = ({ children, href, ...rest }: any) => {
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    // Only handle smooth scrolling for internal links
+    if (href.startsWith("#")) {
+      e.preventDefault();
+      const targetId = href.replace("#", "");
+      const element = document.getElementById(targetId);
+
+      if (element) {
+        const navbarHeight = 96;
+        const yOffset = -navbarHeight;
+        const yPosition = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+        window.scrollTo({
+          top: yPosition,
+          behavior: "smooth",
+        });
+      }
+    }
+  };
+
   return (
-    <Link {...rest} className="text-neutral-700 dark:text-neutral-200 hover:text-black ">
+    <Link href={href} {...rest} className="text-neutral-700 dark:text-neutral-200 hover:text-black" onClick={handleClick}>
       {children}
     </Link>
   );
