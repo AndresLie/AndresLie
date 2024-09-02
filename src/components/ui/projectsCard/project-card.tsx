@@ -22,7 +22,7 @@ export default function ProjectCard({ children,id }: ProjectCardProps) {
                 const maxDistance = viewportHeight / 2;
 
                 // Calculate scale based on proximity to center (minimum scale is 1)
-                const newScale = Math.max(0.8, 0.7 + (1 - distanceFromCenter / maxDistance) * 0.1); 
+                const newScale = Math.max(0.7, 0.7 + (1 - distanceFromCenter / maxDistance) * 0.1); 
 
                 setScale(newScale);
 
