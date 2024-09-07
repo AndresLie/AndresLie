@@ -67,25 +67,23 @@ export const MenuItem = ({
           {item}
         </motion.p>
       </Link>
-      {active !== null && (
+      {active === item && children && (
         <motion.div
-          initial={{ opacity: 0, scale: 0.85, y: 10 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ ...transition, delay: delay + 0.2 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={transition}
         >
-          {active === item && children && (
-            <div className="hidden md:block absolute top-[calc(100%_+_0.5rem)] left-1/2 transform -translate-x-1/2 pt-4">
-              <motion.div
-                transition={transition}
-                layoutId="active"
-                className="bg-white dark:bg-black backdrop-blur-sm rounded-2xl overflow-hidden border border-black/[0.2] dark:border-white/[0.2] shadow-xl"
-              >
-                <motion.div layout className="w-max h-full p-4">
-                  {children}
-                </motion.div>
+          <div className="hidden md:block absolute top-[calc(100%_+_0.5rem)] left-1/2 transform -translate-x-1/2 pt-4 ">
+            <motion.div
+              transition={transition}
+              layoutId="active"
+              className="bg-white dark:bg-black backdrop-blur-sm rounded-2xl overflow-hidden border border-black/[0.2] dark:border-white/[0.2] shadow-xl"
+            >
+              <motion.div layout className="w-max h-full p-4">
+                {children}
               </motion.div>
-            </div>
-          )}
+            </motion.div>
+          </div>
         </motion.div>
       )}
     </motion.div>
@@ -183,8 +181,6 @@ export const Menu = ({
   );
 };
 
-
-
 export const ProductItem = ({
   title,
   description,
@@ -197,14 +193,16 @@ export const ProductItem = ({
   src: string;
 }) => {
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
-    if (href.startsWith("#")) {  // Ensure the href is an internal link with a hash
+    if (href.startsWith("#")) {
+      // Ensure the href is an internal link with a hash
       e.preventDefault();
       const targetId = href.replace("#", "");
       const element = document.getElementById(targetId);
 
       if (element) {
         const yOffset = -108; // Set the offset to 96px
-        const yPosition = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        const yPosition =
+          element.getBoundingClientRect().top + window.pageYOffset + yOffset;
 
         window.scrollTo({
           top: yPosition,
@@ -217,8 +215,7 @@ export const ProductItem = ({
   return (
     <Link
       href={href}
-      className="flex space-x-2 hover:text-black dark:hover:text-white transition duration-300 ease-in-out"
-
+      className="flex space-x-2 hover:text-black hover:bg-slate-200 p-2 rounded-xl dark:hover:text-white transition duration-300 ease-in-out"
       onClick={handleClick} // Attach the click handler to the Link component
     >
       <Image
@@ -251,7 +248,8 @@ export const HoveredLink = ({ children, href, ...rest }: any) => {
       if (element) {
         const navbarHeight = 96;
         const yOffset = -navbarHeight;
-        const yPosition = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        const yPosition =
+          element.getBoundingClientRect().top + window.pageYOffset + yOffset;
 
         window.scrollTo({
           top: yPosition,
@@ -262,7 +260,12 @@ export const HoveredLink = ({ children, href, ...rest }: any) => {
   };
 
   return (
-    <Link href={href} {...rest} className="text-neutral-700 dark:text-neutral-200 hover:text-black" onClick={handleClick}>
+    <Link
+      href={href}
+      {...rest}
+      className="text-neutral-700 dark:text-neutral-200 hover:text-black"
+      onClick={handleClick}
+    >
       {children}
     </Link>
   );

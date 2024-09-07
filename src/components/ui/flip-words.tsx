@@ -29,7 +29,10 @@ export const FlipWords = ({
   }, [isAnimating, duration, startAnimation]);
 
   return (
-    <div className="relative overflow-hidden inline-block align-baseline" style={{ width: currentWord=="Web Developer"?'11ch':'11ch' }}>
+    <div
+      className="relative overflow-hidden inline-block align-baseline"
+      style={{ width: currentWord == "Web Developer" ? "12ch" : "12ch" }}
+    >
       <AnimatePresence
         onExitComplete={() => {
           setIsAnimating(false);

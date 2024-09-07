@@ -1,21 +1,52 @@
 "use client";
 import React, { useState } from "react";
-import { HoveredLink, Menu, MenuItem, ProductItem } from "../components/ui/navbar-menu";
+import {
+  HoveredLink,
+  Menu,
+  MenuItem,
+  ProductItem,
+} from "../components/ui/navbar-menu";
 import { cn } from "@/lib/utils";
 
-export function Navbar({ className, activeSection, setActiveSection }: { className?: string, activeSection: string, setActiveSection: (section: string) => void }) {
+export function Navbar({
+  className,
+  activeSection,
+  setActiveSection,
+}: {
+  className?: string;
+  activeSection: string;
+  setActiveSection: (section: string) => void;
+}) {
   const [active, setActive] = useState<string | null>(null);
   return (
     <div
-      className={cn("fixed top-6 inset-x-0 md:max-w-[55vw] mx-auto z-50", className)}
+      className={cn(
+        "fixed top-6 inset-x-0 md:max-w-[55vw] mx-auto z-50",
+        className
+      )}
     >
       <Menu setActive={setActive}>
-        <MenuItem setActive={setActive} active={active} item="Home" activeSection={activeSection=="Home"}/>
-        <MenuItem setActive={setActive} active={active} item="Experience" activeSection={activeSection=="Experience"}/>
-        <MenuItem setActive={setActive} active={active} item="Projects" activeSection={activeSection=="Projects"}>
-          <div className="  text-sm grid grid-cols-2 gap-10 p-4">
+        <MenuItem
+          setActive={setActive}
+          active={active}
+          item="Home"
+          activeSection={activeSection == "Home"}
+        />
+        <MenuItem
+          setActive={setActive}
+          active={active}
+          item="Experience"
+          activeSection={activeSection == "Experience"}
+        />
+        <MenuItem
+          setActive={setActive}
+          active={active}
+          item="Projects"
+          activeSection={activeSection == "Projects"}
+        >
+          <div className=" text-xs grid grid-cols-2 gap-2 p-0">
             <ProductItem
-              title="Multilingual Music Player"
+              title="Multilingual Music App"
               href="#Music-Player"
               src="/assets/music-player-nav.jpg"
               description="A Multilingual Mobile Music Player with playlist,queue and music detector"
@@ -34,7 +65,12 @@ export function Navbar({ className, activeSection, setActiveSection }: { classNa
             />
           </div>
         </MenuItem>
-        <MenuItem setActive={setActive} active={active} item="Skills" activeSection={activeSection=="Skills"}>
+        <MenuItem
+          setActive={setActive}
+          active={active}
+          item="Skills"
+          activeSection={activeSection == "Skills"}
+        >
           <div className="flex flex-col space-y-4 text-sm">
             <HoveredLink href="#Frontend">Frontend Development</HoveredLink>
             <HoveredLink href="#Backend">Backend Development</HoveredLink>
