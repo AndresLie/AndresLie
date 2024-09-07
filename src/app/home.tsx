@@ -33,10 +33,10 @@ export function Home() {
             href="https://github.com/AndresLie?tab=repositories"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-gray-700 text-white border-2 border-transparent px-6 py-3 rounded-full hover:scale-110 hover:border-white transition-all duration-300 ease-in-out text-center flex items-center justify-center gap-2 w-48 h-16 text-2xl"
+            className="bg-gray-700 text-white border-2 border-transparent px-5 py-3 rounded-full hover:scale-110 hover:border-white transition-all duration-300 ease-in-out text-center flex items-center justify-center gap-2 w-48 h-12 text-2xl"
           >
             GitHub
-            <Icon icon="skill-icons:github-light" width={30} height={30} />
+            <Icon icon="skill-icons:github-light" width={25} height={25} />
           </a>
         </LinkPreview>
         <LinkPreview
@@ -47,10 +47,10 @@ export function Home() {
             href="https://www.linkedin.com/in/andreaslie7/"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-blue-950 text-white border-2 border-transparent px-6 py-3 rounded-full hover:scale-110 hover:border-white transition-all duration-300 ease-in-out text-center flex items-center justify-center gap-2 w-48 h-16 text-2xl"
+            className="bg-blue-950 text-white border-2 border-transparent px-5 py-3 rounded-full hover:scale-110 hover:border-white transition-all duration-300 ease-in-out text-center flex items-center justify-center gap-2 w-48 h-12 text-2xl"
           >
             LinkedIn
-            <Icon icon="skill-icons:linkedin" width={30} height={30} />
+            <Icon icon="skill-icons:linkedin" width={25} height={25} />
           </a>
         </LinkPreview>
       </div>
