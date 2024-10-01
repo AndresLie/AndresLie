@@ -17,10 +17,11 @@ export default function Experience() {
             <br></br> intended to assist foreign caretaker and worker in Taiwan
           </Text>
           <Text>
-            <span className="inline-flex items-center">
+            <span className="inline-flex items-center gap-2">
               Technology Used:
               <Icon icon="logos:flutter" width="40" height="40" />
               <Icon icon="file-icons:flask" width="40" height="40" />
+              <Icon icon="skill-icons:docker" width="45" height="45" />
               <Icon icon="logos:gitlab" width="40" height="40" />
             </span>
           </Text>
