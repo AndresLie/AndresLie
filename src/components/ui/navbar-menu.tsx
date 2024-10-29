@@ -123,7 +123,7 @@ export const Menu = ({
       onMouseLeave={() => setActive(null)}
     >
       {/* Hamburger Icon / X Icon for Small Screens */}
-      <div className="md:hidden absolute top-0 right-0 p-4 z-30">
+      <div className="md:hidden absolute inset-y-0 right-0 p-4 z-30">
         <button
           onClick={toggleMenu}
           className="text-blue-700 focus:outline-none"
