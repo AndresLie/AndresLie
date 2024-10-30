@@ -15,10 +15,10 @@ export default function Skills() {
           <Icon icon="devicon:css3" width="100" height="100" />
         </SkillCard>
         <SkillCard desc="JavaScript">
-          <Icon icon="logos:javascript" width="100" height="100" />
+          <Icon icon="skill-icons:javascript" width="100" height="100" />
         </SkillCard>
         <SkillCard desc="TypeScript">
-          <Icon icon="logos:typescript-icon" width="100" height="100" />
+          <Icon icon="skill-icons:typescript" width="100" height="100" />
         </SkillCard>
         <SkillCard desc="React">
           <Icon icon="logos:react" width="100" height="100" />
