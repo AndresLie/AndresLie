@@ -22,7 +22,7 @@ export default function Projects() {
             height="55"
             color="#61DAFB"
           />
-          <Icon icon="logos:javascript" width="55" height="55" />
+          <Icon icon="skill-icons:javascript" width="55" height="55" />
           <Icon icon="file-icons:flask" width="55" height="55" />
           <Icon icon="logos:python" width="55" height="55" />
           <Icon icon="vscode-icons:file-type-mongo" width="55" height="55" />

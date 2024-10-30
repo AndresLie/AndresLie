@@ -1,8 +1,6 @@
-"use client"
+"use client";
 import { Home } from "./home";
 import Experience from "./experience";
-import '@mantine/core/styles.css';
-import { MantineProvider } from '@mantine/core';
 import { Navbar } from "./navbar";
 import { useEffect, useState } from "react";
 import Projects from "./projects";
@@ -10,35 +8,38 @@ import Skills from "./skills";
 import Contact from "./contact";
 
 export default function Page() {
-  const [activeSection, setActiveSection] = useState("Home")
+  const [activeSection, setActiveSection] = useState("Home");
   useEffect(() => {
     const handleScroll = () => {
       const sections = document.querySelectorAll("section");
       let currentSection: string | null = activeSection;
-    
+
       const viewportMiddle = window.scrollY + window.innerHeight / 2;
-    
+
       sections.forEach((section) => {
         const sectionTop = section.offsetTop;
         const sectionBottom = sectionTop + section.clientHeight;
-    
+
         if (viewportMiddle >= sectionTop && viewportMiddle < sectionBottom) {
           currentSection = section.getAttribute("id");
         }
       });
-    
+
       if (currentSection !== activeSection) {
         setActiveSection(currentSection);
       }
     };
-    
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-    }, [activeSection]);
-    
+  }, [activeSection]);
+
   return (
-    <MantineProvider>
-      <Navbar setActiveSection={setActiveSection} activeSection={activeSection} />
+    <>
+      <Navbar
+        setActiveSection={setActiveSection}
+        activeSection={activeSection}
+      />
       <section id="Home" className="">
         <Home />
       </section>
@@ -54,6 +55,6 @@ export default function Page() {
       <section id="">
         <Contact />
       </section>
-    </MantineProvider>
+    </>
   );
 }
