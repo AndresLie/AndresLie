@@ -62,8 +62,8 @@ export default function Experience() {
                 for students in NCKU.
               </li>
               <li>
-                Implemented Scrum methodologies for fast deployment and
-                iterative update
+                Utilized Scrum methodologies to achieve rapid deployment cycles
+                and continuous iterative improvements
               </li>
             </ul>
 
