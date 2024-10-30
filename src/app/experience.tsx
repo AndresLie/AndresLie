@@ -34,15 +34,16 @@ export default function Experience() {
                 experience and interface.
               </li>
             </ul>
-
-            <span className="text-lg text-neutral-800 dark:text-neutral-200 font-normal inline-flex items-center gap-2">
-              Technology :
-              <Icon icon="logos:flutter" width="40" height="40" />
-              <Icon icon="devicon:python" width="40" height="40" />
-              <Icon icon="file-icons:flask" width="40" height="40" />
-              <Icon icon="skill-icons:docker" width="45" height="45" />
-              <Icon icon="logos:gitlab" width="40" height="40" />
-            </span>
+            <div className="text-lg text-neutral-800 dark:text-neutral-200 font-normal flex items-center gap-x-4">
+              <span>Technology:</span>
+              <div className="flex items-center gap-2 flex-wrap ">
+                <Icon icon="logos:flutter" width="40" height="40" />
+                <Icon icon="devicon:python" width="40" height="40" />
+                <Icon icon="file-icons:flask" width="40" height="40" />
+                <Icon icon="skill-icons:docker" width="45" height="45" />
+                <Icon icon="logos:gitlab" width="40" height="40" />
+              </div>
+            </div>
           </div>
         </div>
       ),
@@ -67,14 +68,16 @@ export default function Experience() {
               </li>
             </ul>
 
-            <span className="text-lg text-neutral-800 dark:text-neutral-200 font-normal inline-flex items-center gap-2">
-              Technology :
-              <Icon icon="devicon:nextjs" width="40" height="40" />
-              <Icon icon="skill-icons:typescript" width="40" height="40" />
-              <Icon icon="devicon:tailwindcss" width="40" height="40" />
-              <Icon icon="skill-icons:github-dark" width="40" height="40" />
-              <Icon icon="devicon:jira" width="40" height="40" />
-            </span>
+            <div className="text-lg text-neutral-800 dark:text-neutral-200 font-normal flex items-center gap-x-4">
+              <span>Technology:</span>
+              <div className="flex items-center gap-2 flex-wrap ">
+                <Icon icon="devicon:nextjs" width="40" height="40" />
+                <Icon icon="skill-icons:typescript" width="40" height="40" />
+                <Icon icon="devicon:tailwindcss" width="40" height="40" />
+                <Icon icon="skill-icons:github-dark" width="40" height="40" />
+                <Icon icon="devicon:jira" width="40" height="40" />
+              </div>
+            </div>
           </div>
         </div>
       ),
