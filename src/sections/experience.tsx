@@ -17,8 +17,18 @@ export default function Experience() {
             <ul className="list-disc pl-5 text-neutral-800 dark:text-neutral-200 text-md md:text-xl font-normal mb-4">
               <li>
                 Collaborated with a team to design and implement new features
-                for <strong>Kasih</strong>, a mobile app intended to assist
-                foreign caregiver and worker in Taiwan.
+                for{" "}
+                <strong>
+                  <a
+                    href="https://iog.ncku.edu.tw/p/406-1169-264543,r2694.php?Lang=zh-tw"
+                    target="_blank"
+                    className="underline text-blue-600"
+                  >
+                    Kasih
+                  </a>
+                </strong>
+                , a mobile app intended to assist foreign caregiver and worker
+                in Taiwan.
               </li>
               <li>
                 Developed a backend search feature for PDF documents, reducing
