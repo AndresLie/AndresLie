@@ -1,11 +1,11 @@
 "use client";
-import { Home } from "./home";
-import Experience from "./experience";
+import { Home } from "../sections/home";
+import Experience from "../sections/experience";
 import { Navbar } from "./navbar";
 import { useEffect, useState } from "react";
-import Projects from "./projects";
-import Skills from "./skills";
-import Contact from "./contact";
+import Projects from "../sections/projects";
+import Skills from "../sections/skills";
+import Contact from "../sections/contact";
 
 export default function Page() {
   const [activeSection, setActiveSection] = useState("Home");
