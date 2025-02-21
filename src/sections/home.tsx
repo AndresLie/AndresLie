@@ -15,7 +15,7 @@ export function Home() {
         <br />
       </h2>
       <div className="">
-        <h2 className="relative flex-col md:flex-row z-10 text-3xl md:text-5xl md:leading-tight max-w-5xl mx-auto text-center tracking-tight font-medium bg-clip-text text-transparent bg-gradient-to-b from-neutral-800 via-white to-white flex items-center ">
+        <h2 className="relative flex-row z-10 text-3xl md:text-5xl md:leading-tight max-w-5xl mx-auto text-center tracking-tight font-medium bg-clip-text text-transparent bg-gradient-to-b from-neutral-800 via-white to-white flex items-center ">
           I&apos;m a
           <FlipWords words={words} className="text-neutral-100 z-99" />
         </h2>
