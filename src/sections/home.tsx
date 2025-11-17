@@ -21,7 +21,7 @@ export function Home() {
         </h2>
       </div>
       <h2 className="relative flex-col md:flex-row z-10 text-xl md:text-5xl md:leading-tight max-w-5xl mx-auto text-center tracking-tight font-medium text-stone-200 flex items-center ">
-        Currently a Senior Year student in NCKU
+        Currently a 1st Year Master student in NCKU
         <br />
       </h2>
       <div className="flex gap-4 md:gap-16 z-10  absolute bottom-[20vh] ">
