@@ -27,19 +27,23 @@ export default function Skills() {
           <Icon icon="devicon:tailwindcss" width="100" height="100" />
         </SkillCard>
       </SkillContainer>
+
       <SkillContainer title="Backend Development" id="Backend">
         <SkillCard desc="Python">
           <Icon icon="logos:python" width="100" height="100" />
         </SkillCard>
-        {/* <SkillCard desc="C#">
-                            <Icon icon="devicon:csharp" width="100" height="100" />
-                        </SkillCard> */}
         <SkillCard desc="Flask">
           <Icon icon="file-icons:flask" width="100" height="100" />
         </SkillCard>
-        {/* <SkillCard desc="ASP.NET Core">
-                            <Icon icon="devicon:dotnetcore" width="100" height="100" />
-                        </SkillCard> */}
+        <SkillCard desc="PostGreSQL">
+          <Icon icon="skill-icons:postgresql-light" width="100" height="100" />
+        </SkillCard>
+        <SkillCard desc="Mongo DB">
+          <Icon icon="vscode-icons:file-type-mongo" width="100" height="100" />
+        </SkillCard>
+        <SkillCard desc="Firebase">
+          <Icon icon="logos:firebase" width="100" height="100" />
+        </SkillCard>
       </SkillContainer>
 
       <SkillContainer title="Mobile App Development" id="Mobile">
@@ -54,9 +58,6 @@ export default function Skills() {
         <SkillCard desc="Flutter">
           <Icon icon="logos:flutter" width="100" height="100" />
         </SkillCard>
-        {/* <SkillCard desc="Kotlin">
-                            <Icon icon="logos:kotlin-icon" width="100" height="100" />
-                        </SkillCard> */}
       </SkillContainer>
 
       <SkillContainer title="Other Technologies" id="Others">
@@ -66,14 +67,18 @@ export default function Skills() {
         <SkillCard desc="Docker">
           <Icon icon="skill-icons:docker" width="100" height="100" />
         </SkillCard>
-        <SkillCard desc="Mongo DB">
-          <Icon icon="vscode-icons:file-type-mongo" width="100" height="100" />
-        </SkillCard>
+
         <SkillCard desc="PyTorch">
           <Icon icon="devicon:pytorch" width="100" height="100" />
         </SkillCard>
         <SkillCard desc="Google Colab">
           <Icon icon="devicon:googlecolab" width="100" height="100" />
+        </SkillCard>
+        <SkillCard desc="Microsoft Azure">
+          <Icon icon="skill-icons:azure-light" width="100" height="100" />
+        </SkillCard>
+        <SkillCard desc="Postman">
+          <Icon icon="skill-icons:postman" width="100" height="100" />
         </SkillCard>
       </SkillContainer>
     </div>
