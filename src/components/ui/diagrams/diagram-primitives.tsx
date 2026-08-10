@@ -88,6 +88,9 @@ export function Box({
   label,
   sublabel,
   tone = "default",
+  fill: fillOverride,
+  stroke: strokeOverride,
+  rx = 8,
 }: {
   x: number;
   y: number;
@@ -96,8 +99,15 @@ export function Box({
   label: string;
   sublabel?: string;
   tone?: BoxTone;
+  /** Explicit colours, for diagrams with their own palette. */
+  fill?: string;
+  stroke?: string;
+  /** Corner radius; pass h/2 for a stadium (start/end) shape. */
+  rx?: number;
 }) {
-  const { fill, stroke } = TONES[tone];
+  const toned = TONES[tone];
+  const fill = fillOverride ?? toned.fill;
+  const stroke = strokeOverride ?? toned.stroke;
   const centerX = x + w / 2;
   return (
     <g>
@@ -106,7 +116,7 @@ export function Box({
         y={y}
         width={w}
         height={h}
-        rx={8}
+        rx={rx}
         fill={fill}
         stroke={stroke}
         strokeWidth={1.5}
@@ -360,12 +370,21 @@ export function GroupOutline({
   w,
   h,
   label,
+  fill = "none",
+  stroke = COLORS.boxStroke,
+  dashed = true,
+  labelColor = COLORS.muted,
 }: {
   x: number;
   y: number;
   w: number;
   h: number;
   label: string;
+  /** Pass a colour for a filled panel instead of a bare outline. */
+  fill?: string;
+  stroke?: string;
+  dashed?: boolean;
+  labelColor?: string;
 }) {
   return (
     <g>
@@ -375,14 +394,136 @@ export function GroupOutline({
         width={w}
         height={h}
         rx={10}
-        fill="none"
-        stroke={COLORS.boxStroke}
-        strokeWidth={1}
-        strokeDasharray="4 4"
+        fill={fill}
+        stroke={stroke}
+        strokeWidth={dashed ? 1 : 1.5}
+        strokeDasharray={dashed ? "4 4" : undefined}
       />
-      <text x={x + 10} y={y + 16} fontSize={11} fill={COLORS.muted}>
+      <text
+        x={x + 12}
+        y={y + 18}
+        fontSize={11}
+        fontWeight={dashed ? 400 : 700}
+        fill={labelColor}
+      >
         {label}
       </text>
+    </g>
+  );
+}
+
+/** Decision node. `label` sits on one line, `sublabel` below it. */
+export function Diamond({
+  cx,
+  cy,
+  halfWidth = 110,
+  halfHeight = 36,
+  label,
+  fill = COLORS.warnFill,
+  stroke = COLORS.warnStroke,
+}: {
+  cx: number;
+  cy: number;
+  halfWidth?: number;
+  halfHeight?: number;
+  label: string;
+  fill?: string;
+  stroke?: string;
+}) {
+  return (
+    <g>
+      <polygon
+        points={`${cx},${cy - halfHeight} ${cx + halfWidth},${cy} ${cx},${
+          cy + halfHeight
+        } ${cx - halfWidth},${cy}`}
+        fill={fill}
+        stroke={stroke}
+        strokeWidth={1.5}
+      />
+      <text
+        x={cx}
+        y={cy + 4}
+        textAnchor="middle"
+        fontSize={12}
+        fontWeight={600}
+        fill={COLORS.text}
+      >
+        {label}
+      </text>
+    </g>
+  );
+}
+
+/**
+ * Right-angle arrow, for edges that bypass intermediate stages. "hv" goes
+ * horizontal first then vertical; "vh" the reverse. Straight diagonals across a
+ * dense diagram inevitably cut through boxes — these thread the gaps.
+ */
+export function ElbowArrow({
+  from,
+  to,
+  axis = "hv",
+  midY,
+  label,
+  dashed = false,
+}: {
+  from: [number, number];
+  to: [number, number];
+  /** "hv" horizontal-then-vertical, "vh" the reverse, "vhv" down-across-down
+   *  (needs midY) for routing through a gap between two rows of boxes. */
+  axis?: "hv" | "vh" | "vhv";
+  /** The y of the horizontal run, for axis="vhv". */
+  midY?: number;
+  label?: string;
+  dashed?: boolean;
+}) {
+  const [x1, y1] = from;
+  const [x2, y2] = to;
+
+  let points: string;
+  let labelX: number;
+  let labelY: number;
+  let anchor: "middle" | "start";
+
+  if (axis === "vhv") {
+    const cross = midY ?? (y1 + y2) / 2;
+    points = `${x1},${y1} ${x1},${cross} ${x2},${cross} ${x2},${y2}`;
+    labelX = (x1 + x2) / 2;
+    labelY = cross - 7;
+    anchor = "middle";
+  } else if (axis === "hv") {
+    points = `${x1},${y1} ${x2},${y1} ${x2},${y2}`;
+    labelX = (x1 + x2) / 2;
+    labelY = y1 - 7;
+    anchor = "middle";
+  } else {
+    points = `${x1},${y1} ${x1},${y2} ${x2},${y2}`;
+    labelX = x1 + 8;
+    labelY = (y1 + y2) / 2;
+    anchor = "start";
+  }
+
+  return (
+    <g>
+      <polyline
+        points={points}
+        fill="none"
+        stroke={COLORS.stroke}
+        strokeWidth={1.5}
+        strokeDasharray={dashed ? "5 4" : undefined}
+        markerEnd="url(#arrowhead)"
+      />
+      {label && (
+        <text
+          x={labelX}
+          y={labelY}
+          textAnchor={anchor}
+          fontSize={11}
+          fill={COLORS.muted}
+        >
+          {label}
+        </text>
+      )}
     </g>
   );
 }

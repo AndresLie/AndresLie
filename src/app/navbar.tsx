@@ -70,14 +70,12 @@ export function Navbar({
             <HoveredLink href="#Others">Others</HoveredLink>
           </div>
         </MenuItem>
-        {/* <MenuItem setActive={setActive} active={active} item="Contact" activeSection={activeSection=="Contact"}>
-          <div className="flex flex-col space-y-4 text-sm">
-            <HoveredLink href="/hobby">Hobby</HoveredLink>
-            <HoveredLink href="/individual">Individual</HoveredLink>
-            <HoveredLink href="/team">Team</HoveredLink>
-            <HoveredLink href="/enterprise">Enterprise</HoveredLink>
-          </div>
-        </MenuItem> */}
+        <MenuItem
+          setActive={setActive}
+          active={active}
+          item="Contact"
+          activeSection={activeSection == "Contact"}
+        />
       </Menu>
     </div>
   );

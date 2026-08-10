@@ -115,7 +115,7 @@ export default function TsradStackDiagram() {
         {/* Transport */}
         <div className="mt-4 rounded-xl bg-[#e8eef7] px-5 py-4">
           <p className="mb-3 text-xs font-bold text-[#232e5c]">
-            Kafka / Redpanda transport
+            Kafka transport
           </p>
           <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
             {TOPICS.map((topic) => (

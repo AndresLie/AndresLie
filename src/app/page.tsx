@@ -56,7 +56,7 @@ export default function Page() {
       <section id="Skills" className="pt-16 pb-16">
         <Skills />
       </section>
-      <section id="">
+      <section id="Contact">
         <Contact />
       </section>
     </>

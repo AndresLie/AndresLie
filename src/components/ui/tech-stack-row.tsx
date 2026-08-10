@@ -20,6 +20,11 @@ const TECH_ICON_MAP: Record<string, string> = {
   Firebase: "logos:firebase",
   "Azure Logic Apps": "devicon:azure",
   PostGreSQL: "logos:postgresql",
+  PyTorch: "devicon:pytorch",
+  "scikit-learn": "devicon:scikitlearn",
+  // Intentionally absent, so they render as text pills instead: CLIP and FAISS
+  // have no brand icon, and "Service Bus" / "Azure OpenAI" would both resolve
+  // to the same generic Azure logo already used by Logic Apps.
 };
 
 export default function TechStackRow({

@@ -97,7 +97,13 @@ export const LinkPreview = ({
           setOpen(open);
         }}
       >
+        {/* asChild is required, not cosmetic: without it Radix renders its own
+            <a href={url}> around `children`, and every caller passes an <a>.
+            Nested anchors are invalid HTML, so the browser reparents them and
+            React aborts hydration for the whole page. With asChild the child
+            anchor *becomes* the trigger, so only one <a> is emitted. */}
         <HoverCardPrimitive.Trigger
+          asChild
           onMouseMove={handleMouseMove}
           className={cn("text-black dark:text-white", className)}
           href={url}

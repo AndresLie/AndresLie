@@ -117,10 +117,13 @@ challenges: [
   teamSize: "4 people",
   techStack: [
     "Python",
-    "Kafka / Redpanda",
+    "Kafka",
+    "PyTorch",
+    "CLIP",
+    "scikit-learn",
+    "NumPy",
     "Pydantic",
     "Docker",
-    "NumPy",
   ],
   cardBullets: [
     "Designed an end-to-end anomaly detection pipeline for identifying unusual vibration patterns, process drift, and potential tool-wear behavior in multichannel CNC telemetry.",
@@ -188,6 +191,9 @@ challenges: [
       "Flask",
       "PostGreSQL",
       "Azure Logic Apps",
+      "Service Bus",
+      "Azure OpenAI",
+      "FAISS",
       "Firebase",
     ],
     cardBullets: [

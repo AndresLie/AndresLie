@@ -17,6 +17,8 @@ import SinkCommitPathDiagram from "@/components/ui/diagrams/sink-commit-path-dia
 import TsradStackDiagram from "@/components/ui/diagrams/tsrad-stack-diagram";
 import TsradDiagram from "@/components/ui/diagrams/tsrad-diagram";
 import AidealDiagram from "@/components/ui/diagrams/aideal-diagram";
+import AidealNotificationDiagram from "@/components/ui/diagrams/aideal-notification-diagram";
+import AidealRecommendationDiagram from "@/components/ui/diagrams/aideal-recommendation-diagram";
 
 const DIAGRAMS: Record<string, React.ComponentType[]> = {
   "semiconductor-console": [
@@ -24,7 +26,11 @@ const DIAGRAMS: Record<string, React.ComponentType[]> = {
     SinkCommitPathDiagram,
   ],
   tsrad: [TsradStackDiagram, TsradDiagram],
-  aideal: [AidealDiagram],
+  aideal: [
+    AidealDiagram,
+    AidealNotificationDiagram,
+    AidealRecommendationDiagram,
+  ],
 };
 
 // Inline SVG rather than @iconify/react: this page is a Server Component and
