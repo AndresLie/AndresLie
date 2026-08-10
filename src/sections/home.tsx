@@ -13,14 +13,14 @@ export function Home() {
         Hi, I&apos;m Andreas
         <br />
       </h2>
-      <div className="">
+      {/* <div className="">
         <h2 className="relative flex-row z-10 text-3xl md:text-5xl md:leading-tight max-w-5xl mx-auto text-center tracking-tight font-medium bg-clip-text text-transparent bg-gradient-to-b from-neutral-800 via-white to-white flex items-center ">
           I&apos;m a
           <FlipWords words={words} className="text-neutral-100 z-99" />
         </h2>
-      </div>
+      </div> */}
       <h2 className="relative flex-col md:flex-row z-10 text-xl md:text-5xl md:leading-tight max-w-5xl mx-auto text-center tracking-tight font-medium text-stone-200 flex items-center ">
-        Currently a 1st Year Master student in NCKU
+        a Master student in NCKU
         <br />
       </h2>
       <div className="flex gap-4 md:gap-16 z-10  absolute bottom-[20vh] ">
