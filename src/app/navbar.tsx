@@ -1,11 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import {
-  HoveredLink,
-  Menu,
-  MenuItem,
-  ProductItem,
-} from "../components/ui/navbar-menu";
+import { HoveredLink, Menu, MenuItem } from "../components/ui/navbar-menu";
 import { cn } from "@/lib/utils";
 
 export function Navbar({
@@ -35,36 +30,33 @@ export function Navbar({
         <MenuItem
           setActive={setActive}
           active={active}
+          item="Projects"
+          activeSection={activeSection == "Projects"}
+        >
+          <div className="flex flex-col space-y-4 text-sm">
+            <HoveredLink href="#Semiconductor-Console">
+              Virtual Tool Console for Semiconductor Equipment
+            </HoveredLink>
+            <HoveredLink href="#TSRAD">
+              TSRAD: Time-Series Anomaly Detection System
+            </HoveredLink>
+            <HoveredLink href="#Aideal-Project">
+              Aideal: Full-stack Education Platform
+            </HoveredLink>
+          </div>
+        </MenuItem>
+        <MenuItem
+          setActive={setActive}
+          active={active}
           item="Experience"
           activeSection={activeSection == "Experience"}
         />
         <MenuItem
           setActive={setActive}
           active={active}
-          item="Projects"
-          activeSection={activeSection == "Projects"}
-        >
-          <div className=" text-xs grid grid-cols-2 gap-2 p-0">
-            <ProductItem
-              title="Multilingual Music App"
-              href="#Music-Player"
-              src="/assets/music-player-nav.jpg"
-              description="A Multilingual Mobile Music Player with playlist,queue and music detector"
-            />
-            <ProductItem
-              title="Raspi Forecast Bot"
-              href="#Forecast-Bot"
-              src="/assets/weather-forecast-nav.png"
-              description="A Weather forecast and analyst personal Assistant built on Raspberry Pi"
-            />
-            <ProductItem
-              title="To-Do List App"
-              href="#To-do-List"
-              src="/assets/to-do-list.png"
-              description="A To Do List App with save on local browser and responsive design."
-            />
-          </div>
-        </MenuItem>
+          item="Education"
+          activeSection={activeSection == "Education"}
+        />
         <MenuItem
           setActive={setActive}
           active={active}

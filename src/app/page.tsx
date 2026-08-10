@@ -4,6 +4,7 @@ import Experience from "../sections/experience";
 import { Navbar } from "./navbar";
 import { useEffect, useState } from "react";
 import Projects from "../sections/projects";
+import Education from "../sections/education";
 import Skills from "../sections/skills";
 import Contact from "../sections/contact";
 
@@ -43,13 +44,16 @@ export default function Page() {
       <section id="Home" className="">
         <Home />
       </section>
+      <section id="Projects" className="pt-16 pb-16">
+        <Projects />
+      </section>
       <section id="Experience" className="pt-16 pb-16">
         <Experience />
       </section>
-      <section id="Projects">
-        <Projects />
+      <section id="Education" className="pt-16 pb-16">
+        <Education />
       </section>
-      <section id="Skills">
+      <section id="Skills" className="pt-16 pb-16">
         <Skills />
       </section>
       <section id="">
