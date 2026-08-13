@@ -1,5 +1,5 @@
 # 💫 About Me:
-🔭 I’m currently working on Cross Lingual App<br>
+🔭 I’m currently a Master Stuednt<br>
 🌐Visit my [personal website](https://andres-lie.vercel.app/)
 
 
