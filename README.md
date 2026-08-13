@@ -1,5 +1,5 @@
 # 💫 About Me:
-🔭 I’m currently a Master Stuednt<br>
+  🔭 I’m currently a Master Student<br>
 🌐Visit my [personal website](https://andres-lie.vercel.app/)
 
 
